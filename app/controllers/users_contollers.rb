@@ -7,10 +7,10 @@ class UsersController < ApplicationController
 
 	
 
-def show
+	def show
     @user = User.find(params[:id])
     
-  end
+  	end
   
    def update
     if current_user.update_attributes(user_params)
@@ -19,8 +19,8 @@ def show
     else
       flash[:error] = "Invalid user information"
       redirect_to edit_user_registration_path
-    end
-  end
+    	end
+  	end
 
  
    private

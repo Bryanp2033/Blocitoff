@@ -1,12 +1,3 @@
-first-project
-first project
-first project
-first project
-first project
-first project
-first project
-# Blocitoff
-# Blocitoff
-# Blocitoff
-# Blocitoff
-# Blocitoff
+## Blocitoff:an application that allows users to create self-destructing to-do lists.
+
+## Made with my mentor at [Bloc](http://bloc.io).
