@@ -4,7 +4,7 @@
          <h2 class="media-heading"><%= @user.name %></h2>
          <nav><%= link_to "Create a list", items_create_path %>
        <div class="tab-pane active">
-         <%= render partial: 'items/item' %>
+         <div class='js-comments-count'><%= render partial: 'items/item' %></div>
        </div>
        </div>
        
