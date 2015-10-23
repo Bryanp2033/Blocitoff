@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-	
+
   def create
   	@items = Item.new(params[:id])
   	if @items.save
@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   	else
   		flash[:error] = "There was an error saving the item. Please try again"
   		render :new
+  		
   	end
   end
 end
