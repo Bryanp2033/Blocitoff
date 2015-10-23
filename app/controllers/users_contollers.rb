@@ -8,6 +8,7 @@ before_action :authenticate_user!, except: [:show]
 	
 	def show
     @user = User.find(params[:id])
+    @items = @user.items.visible_to(current_user)
   	end
   
    def update
