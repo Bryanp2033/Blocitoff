@@ -2,10 +2,14 @@
    <div class="col-md-8">
        <div class="media-body">
          <h2 class="media-heading"><%= @user.name %></h2>
-         <nav><%= link_to "Create a list", items_create_path %>
-       <div class="tab-pane active">
-         <div class='js-comments-count'><%= render partial: 'items/item' %></div>
-       </div>
+
+         <nav><%= link_to "Create a new item", new_user_item_path(current_user) %>
+	       <div class="tab-pane active">
+	       	<small  class='js-items-count'>
+       			<%= pluralize(current_user.items.count, 'item') %>
+ 		   	</small>
+	         <%= render partial: 'items/item', collection: @user.items %>
+	       </div>
        </div>
        
    </div>

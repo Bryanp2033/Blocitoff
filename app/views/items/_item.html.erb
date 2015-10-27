@@ -1,5 +1,5 @@
- <small>
-       <%= pluralize(current_user.items_count, 'items') %>
- </small>
- 
- <p><<%= link_to "", item, method: :delete,remote: true, class: 'glyphicon glyphicon-ok' %>%= items.name %></p>
+
+ <p>
+ 	<%= link_to "", [current_user,item], method: :delete,remote: true, class: 'glyphicon glyphicon-ok' %>
+ 	<%= item.name %>
+ </p>
