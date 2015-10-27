@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:update, :show, :new, :index]
 
 
-  get 'users/:id' => 'users#show'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -58,7 +58,17 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  
 
-  root to: 'welcome#index'
+  authenticated :user do
+ root to: "users#show", as: :authenticated_root, via: :get
+end
+
+
+unauthenticated do
+  root 'welcome#index'
+end
 
 end
+
