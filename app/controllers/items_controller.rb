@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
     else
       flash[:error] = "Item couldn't be deleted.try again!"
     end
+  end
 
      respond_to do |format|
      format.html
@@ -29,10 +30,11 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
   end
-  
+
   private
 
   def item_params
     params.require(:item).permit(:name)
   end
+
 end
