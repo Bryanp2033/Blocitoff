@@ -1,5 +1,5 @@
 <% if @items.destroyed? %>
-   $('#items' +<%= @items.id %>).hide();
+   $('#items-' +<%= @items.id %>).hide();
  <% else %>
-   $('#items' +<%= @items.id %>).prepend("<div class='alert alert-danger'><%= flash[:error] %></div>");
+   $('#items-' +<%= @items.id %>).prepend("<div class='alert alert-danger'><%= flash[:error] %></div>");
  <% end %>
