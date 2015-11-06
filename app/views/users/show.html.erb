@@ -8,9 +8,12 @@
 	       	<small  class='js-items-count'>
        			<%= pluralize(current_user.items.count, 'item') %>
  		   	</small>
-	         <%= render partial: 'items/item', collection: @user.items %>
+	        <div>
+<%= render partial: 'items/item', collection: @user.items %>
+
 	       </div>
        </div>
        
    </div>
  </div>
+

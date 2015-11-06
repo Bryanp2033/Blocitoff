@@ -1,7 +1,8 @@
 
- <p id="items-<%= item.id %>">
- 	<%= link_to "", [current_user, item], method: :delete,remote: true, class: 'glyphicon glyphicon-ok' %>
- 	<tr><%= item.name %></tr>
- 	<tr><%= item.days_left %></tr>
-
- </p>
+ <table id="items-<%= item.id %>">
+ 	<tr>
+ 	<td><%= link_to "", [current_user, item], method: :delete,remote: true, class: 'glyphicon glyphicon-ok' %></td>
+ 	<td><%= item.name %></td>
+ 	<td><%= pluralize(item.days_left, 'days') %></td>
+ </tr>
+ </table>
