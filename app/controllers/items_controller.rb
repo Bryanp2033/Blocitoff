@@ -1,5 +1,11 @@
 class ItemsController < ApplicationController
 
+
+
+  def new
+    @item = Item.new
+  end
+
   def create
   	@item = current_user.items.build(item_params)
   	if @item.save
@@ -11,13 +17,16 @@ class ItemsController < ApplicationController
   		
   	end
   end
+
+
+
  def destroy
   @item = Item.find(params[:id])
 
   if not @item.destroy
     flash[:error] = "Item couldn't be deleted.try again!"
   end
-  
+
 
   respond_to do |format|
     format.html
@@ -25,9 +34,7 @@ class ItemsController < ApplicationController
   end
 end
 
-  def new
-    @item = Item.new
-  end
+  
 
   private
 

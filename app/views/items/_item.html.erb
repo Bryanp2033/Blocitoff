@@ -1,7 +1,7 @@
 
  <p id="items-<%= item.id %>">
  	<%= link_to "", [current_user, item], method: :delete,remote: true, class: 'glyphicon glyphicon-ok' %>
- 	<%= item.name %>
- 	<%= item.days_left %>
- 	
+ 	<tr><%= item.name %></tr>
+ 	<tr><%= item.days_left %></tr>
+
  </p>

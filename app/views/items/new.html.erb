@@ -2,7 +2,11 @@
 <div class="row">
 	<div class="col-md-8">
 	
-			<%= render partial: 'form' %>
+		<%= form_for [current_user, @item] do |f| %>
+	<%= f.text_field :name , class: 'form-control', placeholder: "Enter item" %>
+	<%= f.submit "Save", class: 'btn btn-success' %>
+	<% end %>
+
 			
 		
 		
