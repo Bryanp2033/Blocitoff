@@ -3,7 +3,11 @@
        <div class="media-body">
          <h2 class="media-heading"><%= @user.name %></h2>
 
-         <nav><%= link_to "Create a new item", new_user_item_path(current_user) %>
+         <%= form_for [current_user, Item.new] do |f| %>
+  <%= f.text_field :name , class: 'form-control', placeholder: "Enter item" %>
+  <%= f.submit "Save", class: 'btn btn-success' %>
+  <% end %>
+
 	       <div class="tab-pane active">
 	       	<small  class='js-items-count'>
        			<%= pluralize(current_user.items.count, 'item') %>
