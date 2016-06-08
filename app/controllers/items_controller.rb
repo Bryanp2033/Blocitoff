@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
 
-
+  #basic crud actions
   def new
     @item = Item.new
   end
@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   def create
   	@item = current_user.items.build(item_params)
   	if @item.save
-  		flash[:notice] = "Item was saved"
+  		flash.now[:notice] = "Item was saved"
   		redirect_to user_path(current_user)
   	else
   		flash[:error] = "There was an error saving the item. Please try again"
@@ -20,20 +20,20 @@ class ItemsController < ApplicationController
 
 
 
+  #deletion with ajax feature, if doesn't get deleted it will display this error
+  def destroy
+    @item = Item.find(params[:id])
 
- def destroy
-  @item = Item.find(params[:id])
+    if not @item.destroy
+      flash[:error] = "Item couldn't be deleted.try again!"
+    end
 
-  if not @item.destroy
-    flash[:error] = "Item couldn't be deleted.try again!"
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
-
-
-  respond_to do |format|
-    format.html
-    format.js
-  end
-end
 
   
 

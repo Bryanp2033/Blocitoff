@@ -1,6 +1,9 @@
+//if item gets destroyed it will fadeout and get deleted from the db
+//as well lowering the counter of the items
 <% if @item.destroyed? %>
    $('#items-' +<%= @item.id %>).fadeOut();
    $('.js-items-count').html('<%= pluralize(current_user.items.count, "item") %>');
+//if else it will prepend the item and display a error flash
  <% else %>
    $('#items-' +<%= @item.id %>).prepend("<div class='alert alert-danger'><%= flash[:error] %></div>");
  <% end %>

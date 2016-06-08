@@ -1,23 +1,27 @@
 <div class="row">
-   <div class="col-md-8">
-       <div class="media-body">
-         <h2 class="media-heading"><%= @user.name %></h2>
+ <div class="col-md-8">
+   <div class="media-body">
+     <h2 class="media-heading"><%= @user.name %></h2>
 
-         <%= form_for [current_user, Item.new] do |f| %>
-  <%= f.text_field :name , class: 'form-control', placeholder: "Enter item" %>
-  <%= f.submit "Save", class: 'btn btn-success' %>
-  <% end %>
+<!-- form for creating a new item to the list -->
+     <%= form_for [current_user, Item.new] do |f| %>
+     <%= f.text_field :name , class: 'form-control', placeholder: "Enter item" %>
+     <br>
+     <%= f.submit "Save", class: 'btn btn-success' %>
+     <% end %>
 
-	       <div class="tab-pane active">
-	       	<small  class='js-items-count'>
-       			<%= pluralize(current_user.items.count, 'item') %>
- 		   	</small>
-	        <div>
-<%= render partial: 'items/item', collection: @user.items %>
 
-	       </div>
-       </div>
-       
-   </div>
- </div>
+<!-- pluralize the number of items the user has, and render the item partial to display the item list -->
+     <div class="tab-pane active">
+       <small  class='js-items-count'>
+        <%= pluralize(current_user.items.count, 'item') %>
+      </small>
+      <div>
+        <%= render partial: 'items/item', collection: @user.items %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
 

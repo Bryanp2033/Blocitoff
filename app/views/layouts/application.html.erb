@@ -13,20 +13,24 @@
 	<nav class="navbar navbar-default">
 		<ul class="nav navbar-nav">
 
+      <!-- if current user is present, it will display the user information-->
 			<% if current_user %>
-          
-             Hello <%= link_to (current_user.name || current_user.email), edit_user_registration_path %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-             <nav><%= link_to "My Profile", current_user %><nav>
-           <% else %>
-             <%= link_to "Sign In", new_user_session_path %> or
-             <%= link_to "Sign Up", new_user_registration_path %>
-           <% end %>
-		</ul>
-	</nav>
-<% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-<% end -%>
-<%= yield %>
 
-</body>
-</html>
+     Hello <%= link_to (current_user.name || current_user.email), edit_user_registration_path %>! 
+     <br>
+     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+
+      <!-- otherwise it will display these options to the vistor-->
+       <% else %>
+       <%= link_to "Sign In", new_user_session_path %> or
+       <%= link_to "Sign Up", new_user_registration_path %>
+       <% end %>
+     </ul>
+   </nav>
+   <% flash.each do |name, msg| -%>
+         <%= content_tag :div, msg, class: name %>
+   <% end -%>
+   <%= yield %>
+
+ </body>
+ </html>

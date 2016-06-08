@@ -1,8 +1,13 @@
+<!-- the items in the list in a table format -->
+<table border="1" style="width:100%">
+	<tr id="items-<%= item.id %>">
+		<td><%= link_to "", [current_user, item], method: :delete,remote: true, class: 'glyphicon glyphicon-ok' %>
+		<td><%= item.name %></td>
+		<td><%= pluralize(item.days_left, 'days') %></td>
+	</tr>
+</table>
 
- <table border="1" style="width:100%">
- 	<tr id="items-<%= item.id %>">
- 	<td><%= link_to "", [current_user, item], method: :delete,remote: true, class: 'glyphicon glyphicon-ok' %></td>
- 	<td><%= item.name %></td>
- 	<td><%= pluralize(item.days_left, 'days') %></td>
- </tr>
- </table>
+
+
+
+
